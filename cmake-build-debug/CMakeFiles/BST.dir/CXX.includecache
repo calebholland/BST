@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/caleb/Documents/EE312/BST/BST312.h
+cstdlib
+-
+iostream
+-
+vector
+-
+
+/home/caleb/Documents/EE312/BST/main.cpp
+iostream
+-
+fstream
+-
+BST312.h
+/home/caleb/Documents/EE312/BST/BST312.h
+
