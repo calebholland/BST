@@ -295,11 +295,12 @@ void BST_312 <ItemType>::insertItem(TreeNode*& t, const ItemType& newItem)
 
     //MY CODE IS HERE
 
+
+    //Iterative version:
+
     if(BST_312::root == NULL){
         BST_312::root = t;
     }
-    //Iterative version:
-
     else if(!isFull()){
         TreeNode * treePtr = root;
         while(treePtr != NULL){
@@ -322,16 +323,18 @@ void BST_312 <ItemType>::insertItem(TreeNode*& t, const ItemType& newItem)
 
     //Recursive version:
     /*
-    else if(!isFull()) {
-        TreeNode *treePtr = root;
-        if (treePtr != NULL) {
-            if (treePtr->data > newItem) {
-                insertItem(treePtr->left, newItem);
-            } else if (treePtr->data < newItem) {
-                insertItem(treePtr->right, newItem);
+    if(!isFull()) {
+        if (t != NULL) {
+            if (t->data > newItem) {
+                insertItem(t->left, newItem);
+            } else if (t->data < newItem) {
+                insertItem(t->right, newItem);
             }
         }
-        t = treePtr;
+        if(t == NULL) {
+            TreeNode *inNode = new TreeNode{newItem, NULL, NULL};
+            t = inNode;
+        }
     }
      */
 }
@@ -340,8 +343,23 @@ template<class ItemType>
 void BST_312 <ItemType>::insertItem(const ItemType& newItem)
 {
     //MY CODE IS HERE
+    //UNCOMMENT BELOW FOR ITERATIVE VERSION
+
     TreeNode *t = new TreeNode{newItem, NULL, NULL};
     insertItem(t, newItem);
+
+    //UNCOMMENT BELOW FOR RECURSIVE VERSION
+    /*
+    TreeNode *t = root;
+    if(t == NULL){
+        TreeNode *inNode = new TreeNode{newItem, NULL, NULL};
+        t = inNode;
+        root = t;
+    }
+    else{
+        insertItem(t, newItem);
+    }
+     */
 }
 
 
